@@ -1,0 +1,101 @@
+# ==========================================
+# 每日雙語 Podcast 設定檔 (Daily Bilingual Podcast Config)
+# ==========================================
+
+podcast:
+  title: "Reddit & News 每日五分鐘雙語精華"
+  subtitle: "每天5分鐘，一句中文、一句英文，輕鬆聽完全球熱門話題與 Reddit 鄉民神回覆"
+  description: "自動蒐集 Reddit 熱門看板與國際趣味新聞，透過 AI 整理成 5 分鐘精華，並以「一句中文、一句英文」雙語朗讀，邊聽新聞邊練英文聽力！"
+  author: "Daily Bilingual Podcast"
+  email: "your-email@example.com"          # 請改為你的 Email（Apple/Spotify 驗證 RSS 擁有權時會用到）
+  language: "zh-TW"
+  category: "News"
+  subcategory: "Daily News"
+  # 部署到 GitHub Pages 後的網址（例如 https://<你的GitHub帳號>.github.io/<Repo名稱>）
+  # 也可以在環境變數設定 PODCAST_BASE_URL 來覆蓋此設定
+  base_url: "https://YOUR_GITHUB_USERNAME.github.io/daily-bilingual-podcast"
+  max_episodes_to_keep: 30                 # 最多保留最近幾集音檔（避免 GitHub Repo 體積過大）
+
+sources:
+  # 要抓取的 Reddit 熱門看板 (Subreddits)
+  subreddits:
+    - name: "todayilearned"
+      limit: 5
+    - name: "worldnews"
+      limit: 5
+    - name: "technology"
+      limit: 5
+    - name: "UpliftingNews"
+      limit: 4
+    - name: "science"
+      limit: 4
+
+  # 備援或額外的新聞 RSS 來源（當 Reddit 連線受限或想混合新聞時使用）
+  rss_feeds:
+    - name: "Hacker News Best"
+      url: "https://hnrss.org/best?count=5"
+    - name: "BBC News World"
+      url: "https://feeds.bbci.co.uk/news/world/rss.xml"
+
+script:
+  model: "gemini-2.5-flash"
+  stories_per_episode: 3                   # 每集挑選幾則最有趣的主題深入介紹
+  target_sentence_pairs: 30                # 目標中英對照組數（約 28~35 組 = 5 分鐘音檔）
+
+tts:
+  # 語音通道模式:
+  # - "auto": 優先使用免費 Edge-TTS (依下方喜好順序)，若遇限制則自動切換至「微軟 Azure 官方免費正版 API 通道」作為最後備選
+  # - "azure": 直接強制使用微軟 Azure 官方免費正版 API (需在 .env 設定 AZURE_SPEECH_KEY)
+  engine: "auto"
+
+  # 目前啟用的首選聲音方案 (依你的喜好排序: preset_4 > preset_1 > preset_5 > preset_2 > preset_6 > preset_3)
+  active_preset: "preset_4"
+
+  # 預設首選（方案 4：同一位超擬真女聲 Ava Multilingual 包辦中英）
+  zh_voice: "en-US-AvaMultilingualNeural"
+  zh_rate: "+0%"
+  en_voice: "en-US-AvaMultilingualNeural"
+  en_rate: "-4%"
+
+  # 句子之間的停頓時間 (毫秒)
+  pause_between_zh_and_en_ms: 350          # 中文講完到英文之間的停頓
+  pause_after_pair_ms: 680                 # 一組(中+英)講完到下一句之前的停頓
+
+  # 你的喜好聲音方案清單（已依你的偏好順序排列：方案4 ➔ 方案1 ➔ 方案5 ➔ 方案2 ➔ 方案6 ➔ 方案3）
+  presets:
+    preset_4:
+      name: "方案 4：同一位超擬真女聲包辦中英 (Ava Multilingual)"
+      zh_voice: "en-US-AvaMultilingualNeural"
+      zh_rate: "+0%"
+      en_voice: "en-US-AvaMultilingualNeural"
+      en_rate: "-4%"
+    preset_1:
+      name: "方案 1：台灣溫暖女聲（曉臻）＋ 美國擬真女聲（Ava）"
+      zh_voice: "zh-TW-HsiaoChenNeural"
+      zh_rate: "+2%"
+      en_voice: "en-US-AvaMultilingualNeural"
+      en_rate: "-4%"
+    preset_5:
+      name: "方案 5：同一位超擬真男聲包辦中英 (Andrew Multilingual)"
+      zh_voice: "en-US-AndrewMultilingualNeural"
+      zh_rate: "+0%"
+      en_voice: "en-US-AndrewMultilingualNeural"
+      en_rate: "-4%"
+    preset_2:
+      name: "方案 2：陽光磁性男聲（雲希）＋ 美國電台男聲（Andrew）"
+      zh_voice: "zh-CN-YunxiNeural"
+      zh_rate: "+0%"
+      en_voice: "en-US-AndrewMultilingualNeural"
+      en_rate: "-4%"
+    preset_6:
+      name: "方案 6：高情感說書女聲（曉曉）＋ 柔和美語（Jenny）"
+      zh_voice: "zh-CN-XiaoxiaoNeural"
+      zh_rate: "+0%"
+      en_voice: "en-US-JennyNeural"
+      en_rate: "-4%"
+    preset_3:
+      name: "方案 3：台灣輕快女聲（曉雨）＋ 美國活力女聲（Emma）"
+      zh_voice: "zh-TW-HsiaoYuNeural"
+      zh_rate: "+0%"
+      en_voice: "en-US-EmmaMultilingualNeural"
+      en_rate: "-4%"

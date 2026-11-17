@@ -1,0 +1,50 @@
+name: Daily Bilingual Podcast Generator
+
+on:
+  schedule:
+    # 每天台灣時間早上 07:00 (UTC 23:00) 自動執行
+    - cron: "0 23 * * *"
+  workflow_dispatch: # 支援在 GitHub Actions 頁面手動點擊按鈕立即執行
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate Today's Bilingual Episode & RSS Feed
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+          AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
+          PODCAST_EMAIL: ${{ secrets.PODCAST_EMAIL }}
+          # 自動組合 GitHub Pages 網址: https://<username>.github.io/<repo-name>
+          PODCAST_BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+        run: python main.py --force
+
+      - name: Commit & Push new episode to repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore(podcast): publish episode $(date +'%Y-%m-%d')"
+            git push
+          fi

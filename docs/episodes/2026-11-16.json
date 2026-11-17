@@ -1,0 +1,49 @@
+{
+  "date": "2026-11-16",
+  "episode_title": "【示範集】Reddit 每日五分鐘雙語精華 (2026-11-16)",
+  "episode_summary": "本集為系統測試示範集：透過一句中文、再一句英文的方式，帶你速覽 Reddit 熱門冷知識與科技話題。",
+  "selected_links": [
+    {
+      "title": "Reddit r/todayilearned & r/technology Highlights",
+      "url": "https://www.reddit.com/r/todayilearned/"
+    }
+  ],
+  "segments": [
+    {
+      "zh": "歡迎收聽每日五分鐘雙語精華，一起用輕鬆的方式聽新聞學英文。",
+      "en": "Welcome to the Daily Five-Minute Bilingual Highlights, where we learn English effortlessly through trending stories."
+    },
+    {
+      "zh": "今天我們從 Reddit 上挑選了幾個討論度極高的有趣話題。",
+      "en": "Today we have handpicked several fascinating topics that are trending heavily on Reddit."
+    },
+    {
+      "zh": "首先在今日冷知識看板上，有網友分享了一個關於海洋生物的驚人發現。",
+      "en": "First up on the Today I Learned board, a user shared an amazing discovery about marine life."
+    },
+    {
+      "zh": "科學家發現，章魚其實擁有三個心臟，而且牠們的血液是藍色的。",
+      "en": "Scientists found that octopuses actually have three hearts, and their blood is blue."
+    },
+    {
+      "zh": "留言區的網友幽默地表示，難怪章魚面對壓力時比人類還要冷靜。",
+      "en": "Commenters joked that this explains why octopuses stay much calmer under pressure than humans do."
+    },
+    {
+      "zh": "接著在科技看板上，大家正熱烈討論人工智慧語音技術的最新進展。",
+      "en": "Next on the technology board, people are actively discussing the latest breakthroughs in artificial intelligence voice synthesis."
+    },
+    {
+      "zh": "現在我們只需要簡單的腳本，就能每天自動把全球趣聞轉換成雙語廣播節目。",
+      "en": "Now with just a simple script, we can automatically turn global stories into a daily bilingual podcast."
+    },
+    {
+      "zh": "以上就是今天的示範內容，感謝你的收聽，我們明天見！",
+      "en": "That wraps up today's demo episode, thank you for listening, and see you tomorrow!"
+    }
+  ],
+  "mp3_filename": "2026-11-16.mp3",
+  "file_size": 657936,
+  "duration_seconds": 110,
+  "pub_date_rfc2822": "Mon, 16 Nov 2026 01:35:16 +0000"
+}

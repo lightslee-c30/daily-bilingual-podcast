@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎙️ 免費 AI 雙語語音 Demo 試聽比較</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      line-height: 1.6;
+    }
+    .container { max-width: 860px; margin: 0 auto; padding: 36px 20px; }
+    h1 { margin-top: 0; font-size: 1.8rem; }
+    .intro {
+      background: #1e293b;
+      border-left: 4px solid #6366f1;
+      padding: 16px 20px;
+      border-radius: 10px;
+      margin-bottom: 28px;
+      color: #cbd5e1;
+    }
+    .card {
+      background: #1e293b;
+      border-radius: 16px;
+      padding: 22px 24px;
+      margin-bottom: 20px;
+      border: 1px solid #334155;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(99, 102, 241, 0.2);
+      color: #a5b4fc;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+    }
+    h2 { margin: 0 0 8px 0; font-size: 1.25rem; color: #fff; }
+    .desc { margin: 0 0 14px 0; color: #cbd5e1; font-size: 0.95rem; }
+    audio { width: 100%; margin-bottom: 10px; }
+    .cfg {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      background: #0f172a;
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+    code { color: #93c5fd; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎧 6 組免費 AI 雙語語音 Demo 試聽比較</h1>
+    <div class="intro">
+      💡 <strong>為什麼剛才第一版聽起來比較生硬？</strong><br/>
+      因為你的網路環境有設定系統 Proxy（<code>10.160.3.88:8080</code>），剛才第一版未帶入 Proxy 導致微軟神經網路語音連線逾時，程式自動退回使用了舊版 Google 翻譯機械音。<br/>
+      現在已經自動接通你的系統 Proxy，以下 <strong>6 組全都是完全免費的微軟 Neural 與最新 Multilingual 超擬真神經網路語音</strong>，請直接點擊播放試聽比較！
+    </div>
+    
+            <div class="card">
+              <div class="badge">🔥 最推薦・台灣自然口音</div>
+              <h2>方案 1：台灣溫暖女聲（曉臻）＋ 美國擬真女聲（Ava）</h2>
+              <p class="desc">台灣最受歡迎的親切女聲 zh-TW-HsiaoChenNeural，搭配微軟最新世代超自然美語女聲 en-US-AvaMultilingualNeural。</p>
+              <audio controls src="demos/demo_1_tw_hsiaochen_ava.mp3"></audio>
+              <div class="cfg">
+                <span><code>config.yaml</code> 設定值：</span>
+                <code>zh_voice: "zh-TW-HsiaoChenNeural"</code> | <code>en_voice: "en-US-AvaMultilingualNeural"</code>
+              </div>
+            </div>
+            
+            <div class="card">
+              <div class="badge">🎙️ 沉穩電台男主持風</div>
+              <h2>方案 2：陽光磁性男聲（雲希）＋ 美國電台男聲（Andrew）</h2>
+              <p class="desc">微軟最受歡迎的青年男聲 zh-CN-YunxiNeural，搭配極具 Podcast 聊天感的美式低沉男聲 en-US-AndrewMultilingualNeural。</p>
+              <audio controls src="demos/demo_2_yunxi_andrew.mp3"></audio>
+              <div class="cfg">
+                <span><code>config.yaml</code> 設定值：</span>
+                <code>zh_voice: "zh-CN-YunxiNeural"</code> | <code>en_voice: "en-US-AndrewMultilingualNeural"</code>
+              </div>
+            </div>
+            
+            <div class="card">
+              <div class="badge">✨ 晨間新聞輕快風</div>
+              <h2>方案 3：台灣輕快女聲（曉雨）＋ 美國活力女聲（Emma）</h2>
+              <p class="desc">節奏明快有朝氣的台灣女聲 zh-TW-HsiaoYuNeural，搭配清晰口語化的 en-US-EmmaMultilingualNeural，適合早上通勤提神。</p>
+              <audio controls src="demos/demo_3_tw_hsiaoyu_emma.mp3"></audio>
+              <div class="cfg">
+                <span><code>config.yaml</code> 設定值：</span>
+                <code>zh_voice: "zh-TW-HsiaoYuNeural"</code> | <code>en_voice: "en-US-EmmaMultilingualNeural"</code>
+              </div>
+            </div>
+            
+            <div class="card">
+              <div class="badge">🌟 最新世代多語模型（中英不換人）</div>
+              <h2>方案 4：同一位超擬真女聲包辦中英（Ava Multilingual）</h2>
+              <p class="desc">中英文皆使用 en-US-AvaMultilingualNeural，具有真人呼吸感與自然抑揚頓挫，且中英切換時完全是同一個人的聲音（帶微ABC腔調）。</p>
+              <audio controls src="demos/demo_4_ava_multilingual_single.mp3"></audio>
+              <div class="cfg">
+                <span><code>config.yaml</code> 設定值：</span>
+                <code>zh_voice: "en-US-AvaMultilingualNeural"</code> | <code>en_voice: "en-US-AvaMultilingualNeural"</code>
+              </div>
+            </div>
+            
+            <div class="card">
+              <div class="badge">🎧 美式 Podcast 雙語男主持（中英不換人）</div>
+              <h2>方案 5：同一位超擬真男聲包辦中英（Andrew Multilingual）</h2>
+              <p class="desc">中英文皆使用 en-US-AndrewMultilingualNeural，語氣非常像真人在錄音室裡對著麥克風跟你聊天，中英轉換毫無違和感。</p>
+              <audio controls src="demos/demo_5_andrew_multilingual_single.mp3"></audio>
+              <div class="cfg">
+                <span><code>config.yaml</code> 設定值：</span>
+                <code>zh_voice: "en-US-AndrewMultilingualNeural"</code> | <code>en_voice: "en-US-AndrewMultilingualNeural"</code>
+              </div>
+            </div>
+            
+            <div class="card">
+              <div class="badge">🎭 抑揚頓挫最強</div>
+              <h2>方案 6：高情感說書女聲（曉曉）＋ 柔和美語（Jenny）</h2>
+              <p class="desc">微軟情緒起伏最豐富的中文神經網路女聲 zh-CN-XiaoxiaoNeural（字正腔圓說書腔），搭配柔和美語 en-US-JennyNeural。</p>
+              <audio controls src="demos/demo_6_xiaoxiao_jenny.mp3"></audio>
+              <div class="cfg">
+                <span><code>config.yaml</code> 設定值：</span>
+                <code>zh_voice: "zh-CN-XiaoxiaoNeural"</code> | <code>en_voice: "en-US-JennyNeural"</code>
+              </div>
+            </div>
+            
+  </div>
+</body>
+</html>
